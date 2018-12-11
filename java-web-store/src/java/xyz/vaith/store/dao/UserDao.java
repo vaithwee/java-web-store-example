@@ -5,7 +5,8 @@ import xyz.vaith.store.domain.User;
 import java.sql.SQLException;
 
 public interface UserDao {
-    public User createNewUser(User user) throws SQLException;
-    public boolean isExistUser(String username) throws SQLException;
-    public boolean activeUser(String code) throws SQLException;
+     User createNewUser(User user) throws SQLException;
+     boolean isExistUser(String username) throws SQLException;
+     boolean activeUser(String code) throws SQLException;
+     User login(String username, String password) throws SQLException;
 }

@@ -33,4 +33,12 @@ public class UserDaoImpl implements UserDao {
         QueryRunner runner = new QueryRunner(JdbcUitl.getDataSource());
         return runner.update(sql, code) > 0;
     }
+
+    @Override
+    public User login(String username, String password) throws SQLException {
+        String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
+        QueryRunner runner = new QueryRunner(JdbcUitl.getDataSource());
+        User user = runner.query(sql, new BeanHandler<User>(User.class), username, password);
+        return user;
+    }
 }

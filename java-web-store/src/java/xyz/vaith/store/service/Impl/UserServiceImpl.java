@@ -27,4 +27,17 @@ public class UserServiceImpl implements UserService {
         UserDao dao = new UserDaoImpl();
         return dao.activeUser(code);
     }
+
+    @Override
+    public User login(String username, String password) throws Exception {
+        UserDao dao = new UserDaoImpl();
+        User user = dao.login(username, password);
+        if (null == user) {
+            throw new Exception("错误的用户名或者密码");
+        }
+        if (user.getState() == 0) {
+            throw new Exception("用户未激活");
+        }
+        return user;
+    }
 }

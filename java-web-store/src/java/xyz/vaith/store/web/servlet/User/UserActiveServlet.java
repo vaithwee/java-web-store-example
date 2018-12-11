@@ -1,4 +1,4 @@
-package xyz.vaith.store.web.servlet;
+package xyz.vaith.store.web.servlet.User;
 
 import xyz.vaith.store.service.Impl.UserServiceImpl;
 import xyz.vaith.store.service.UserService;
